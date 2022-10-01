@@ -1,0 +1,19 @@
+@startuml
+autoactivate on
+
+[-> API: Create campaign
+API --> API: Verify request
+API -> InboundQueue: Add job
+API <- InboundQueue
+API -->[: Return status
+
+...
+
+Worker --> InboundQueue: Query jobs
+InboundQueue -> Worker: Fetch job
+loop
+    Worker -> OutboundQueue: Add coupon to Topic
+    Worker -> DocumentStorage: Generate coupon
+end
+
+@enduml
