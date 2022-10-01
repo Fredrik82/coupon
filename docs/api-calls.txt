@@ -1,0 +1,22 @@
++ input
+- output
+
+GET /topic/{name}
+    + name
+    - DiscountCode
+
+GET /topic/all
+    - <array DiscountCode>
+
+POST /topic/{name}/{amount}
+    + string name
+    + int amount
+    - void
+
+PUT /topic/{name}
+    + string name
+    - void
+
+DELETE /topic/{name}
+    + string name
+    - void

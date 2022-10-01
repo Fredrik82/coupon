@@ -1,0 +1,33 @@
+@startuml
+
+class Brand.Company {
+- int organisationNumber
+- string name
+- array Account.BrandManager
+- array Discount.Campaign
+}
+
+class Discount.Campaign {
+- string campaign
+- date expire
+}
+
+class Discount.CouponCode extends Discount.Campaign {
+- string uniqueCode
+}
+
+abstract Account.Account {
+- id
+- string name
+- string email
+}
+
+class Account.Customer extends Account.Account
+class Account.BrandManager extends Account.Account
+
+Account.BrandManager "*" -- "1" Brand.Company
+Discount.CouponCode "*" -- "1" Discount.Campaign
+Account.Customer "*" -- "1" Discount.Campaign
+Brand.Company "1" -- "*" Discount.Campaign
+
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+autoactivate on
+
+[-> API: Request coupon
+API --> API: Verify request
+API <- OutboundQueue: Fetch coupon
+API <-- DocumentStorage: Fetch coupon metadata
+API --> API: Verify coupon
+API -> DocumentStorage: Update coupon
+API ->[: Return coupon
+
+@enduml

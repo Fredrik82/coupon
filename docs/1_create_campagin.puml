@@ -1,0 +1,12 @@
+@startuml
+autoactivate on
+
+[-> API: Create campaign
+API --> API: Verify request
+loop
+    API -> DocumentStorage: Generate coupon
+    API -> Queue: Add coupon to Topic
+end
+API -->[: Return status
+
+@enduml
