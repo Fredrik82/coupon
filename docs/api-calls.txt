@@ -6,11 +6,11 @@ GET /topic/{name}
     - DiscountCode
 
 GET /topic/all
-    - <array DiscountCode>
+    - array DiscountCode
 
-POST /topic/{name}/{amount}
+POST /topic/{name}/{numberOfCoupons}
     + string name
-    + int amount
+    + int numberOfCoupons
     - void
 
 PUT /topic/{name}
